@@ -8,4 +8,6 @@ export class City {
     @Prop()
     name: string;
 }
+export interface CityDocument extends City, Document { }
+
 export const CitySchema = SchemaFactory.createForClass(City);

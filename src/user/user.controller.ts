@@ -3,6 +3,7 @@ import { UserService } from './user.service';
 import { Query } from '@nestjs/common';
 import axios from 'axios';
 import { ConfigService } from '@nestjs/config';
+import { City } from 'src/city/city.model';
 
 @Controller('user')
 export class UserController {
@@ -22,7 +23,7 @@ export class UserController {
 
   @Get()
   async getTemperature(@Query('city') city: string): Promise<any> {
-      console.log("Input city = " + city);
+      //console.log("Input city = " + city);
       const cities = await this.uesrserice.findAll();
 
     
@@ -36,5 +37,7 @@ export class UserController {
           }
           return result;
       }
+
+    }
 
 }
