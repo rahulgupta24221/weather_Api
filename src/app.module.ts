@@ -7,12 +7,14 @@ import { AdminModule } from './admin/admin.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { City, CitySchema } from './city/city.model';
 import { ConfigModule } from '@nestjs/config';
+import { AuthModule } from './auth/auth.module';
+//import { AppController } from './app.controller';
 
 @Module({
   imports: [MongooseModule.forRoot('mongodb://localhost/mydb'),
     MongooseModule.forFeature([{ name: City.name, schema: CitySchema }]),
     ConfigModule.forRoot(),
-    UserModule, CityModule, AdminModule],
+    UserModule, CityModule, AdminModule,AuthModule],
   controllers: [],
   providers: [],
 })

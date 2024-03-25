@@ -4,8 +4,10 @@ import { Query } from '@nestjs/common';
 import axios from 'axios';
 import { ConfigService } from '@nestjs/config';
 import { City } from 'src/city/city.model';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('user')
+@ApiTags("User")
 export class UserController {
   constructor(private readonly uesrserice:UserService,
     private readonly configService: ConfigService){}

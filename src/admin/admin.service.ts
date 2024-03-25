@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CityDto } from 'src/city/city.dto';
 import { City } from 'src/city/city.model';
+import { Admin } from './admin.entity';
 
 @Injectable()
 export class AdminService {
@@ -15,5 +16,21 @@ export class AdminService {
 
     async findAll(): Promise<City[]> {
         return this.cityModel.find().exec();
+    }
+
+    public Admins : Admin[] = [
+        {
+        name:"admin1",
+        password:"user1"
+       },
+        {
+            name: "admin2",
+            password: "user2"
+        }
+    ];
+   // it is object method
+    getadminbyname(adminname:string):Admin{
+        return this.Admins.find((admin:Admin)=>admin.name == adminname);
+
     }
 }
