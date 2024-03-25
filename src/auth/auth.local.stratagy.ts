@@ -17,13 +17,13 @@ export class passportLocalStrategy extends PassportStrategy(Strategy) {
 
 
 
-    async validate(username: string, password: string): Promise<City> {
+    async validate(username: string, password: string): Promise<Admin> {
         const user:Admin = await this.authService.getadminbyname(username);
         if(user==undefined) throw new UnauthorizedException();
         
         if(user.password == password)
         {
-            return create();
+            return user;
         }
     }
 }
